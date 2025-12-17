@@ -1,0 +1,70 @@
+.tabs-card {
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 16px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* ระยะห่างแต่ละช่อง */
+}
+
+.selector {
+  width: 20%;
+}
+
+.title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.export-button {
+  padding: 15px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+.export-button:hover {
+  background-color: #45a049;
+  cursor: pointer;
+}

@@ -1,0 +1,66 @@
+@use "./custom-theme.scss";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.light-theme .container {
+  background-color: #f5f5f5;
+  color: black;
+}
+
+.dark-theme .container {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark-theme .container,
+.dark-theme .container * {
+  color: white !important;
+}
+
+.dark-theme .mat-card {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.dark-theme
+  .container
+  *:not(::ng-deep .fc .fc-daygrid-day-number):not(
+    ::ng-deep .fc .fc-daygrid-day-top
+  ) {
+  color: white !important;
+}
+
+body,
+mat-toolbar,
+.theme-toggle,
+.header,
+.mat-card,
+.container,
+table,
+td,
+th,
+.fc {
+  transition: background-color 0.8s ease, color 0.8s ease,
+    border-color 0.8s ease;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #1e1e1e;
+}
+
+.light-theme .container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.dark-theme .container {
+  min-height: 100vh; // ครอบคลุม viewport
+  background-color: #1e1e1e;
+}

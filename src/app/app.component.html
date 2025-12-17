@@ -1,0 +1,6 @@
+<div [class.dark-theme]="darkmode" [class.light-theme]="!darkmode">
+  <div class="container">
+    <app-toolbar (darkmodeChange)="toggleDarkmode($event)"></app-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+</div>

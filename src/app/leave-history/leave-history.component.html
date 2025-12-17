@@ -1,0 +1,102 @@
+<mat-card class="stat-card">
+  <div
+    class="stat-content"
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <div>
+      <div class="value">สถิติการลาประจำเดือน</div>
+      <div class="label">ข้อมูลการลาของพนักงานทั้งหมด</div>
+    </div>
+
+    <button class="export-button" (click)="exportExcel()">Export Excel</button>
+  </div>
+</mat-card>
+
+<mat-card class="stat-card">
+  <div class="value" style="margin-bottom: 10px">ตัวกรองข้อมูล</div>
+
+  <form [formGroup]="form" class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>เลือกเดือน</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="startDate"
+        readonly
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+      <mat-datepicker
+        #picker
+        startView="multi-year"
+        (monthSelected)="chosenMonthHandler($event, picker)"
+        panelClass="month-picker"
+      >
+      </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>แผนก</mat-label>
+      <mat-select formControlName="department">
+        <mat-option value="ALL">ทั้งหมด</mat-option>
+        <mat-option *ngFor="let d of departments" [value]="d">
+          {{ d }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-card>
+
+<mat-card class="stat-card">
+  <div class="value">สรุปการลาแยกตามประเภท</div>
+
+  <canvas
+    baseChart
+    [type]="barChartType"
+    [data]="barChartData"
+    [options]="barChartOptions"
+    style="display: block; height: 400px"
+  >
+  </canvas>
+</mat-card>
+
+<mat-card class="stat-card">
+  <div class="value" style="margin-bottom: 12px">รายละเอียดการลารายบุคคล</div>
+
+  <table mat-table [dataSource]="tableData" class="mat-elevation-z1 full-width">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>ชื่อ</th>
+      <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef>แผนก</th>
+      <td mat-cell *matCellDef="let row">{{ row.department }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="sick">
+      <th mat-header-cell *matHeaderCellDef>ลาป่วย</th>
+      <td mat-cell *matCellDef="let row">{{ row.sick }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="vacation">
+      <th mat-header-cell *matHeaderCellDef>ลาพักร้อน</th>
+      <td mat-cell *matCellDef="let row">{{ row.vacation }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="personal">
+      <th mat-header-cell *matHeaderCellDef>ลากิจ</th>
+      <td mat-cell *matCellDef="let row">{{ row.personal }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>รวม</th>
+      <td mat-cell *matCellDef="let row">
+        <strong>{{ row.total }}</strong>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</mat-card>

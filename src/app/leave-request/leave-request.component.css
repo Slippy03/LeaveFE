@@ -1,0 +1,43 @@
+.form-card {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 24px;
+  border-radius: 12px;
+  
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full {
+  width: 100%;
+}
+
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .date-row {
+    grid-template-columns: 1fr;
+  }
+}

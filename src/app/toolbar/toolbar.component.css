@@ -1,0 +1,7 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.custom-toolbar {
+  background-color: rgba(187, 179, 179, 0.84);
+}

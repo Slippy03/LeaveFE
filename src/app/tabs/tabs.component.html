@@ -1,0 +1,43 @@
+<mat-card class="tabs-card">
+  <nav mat-tab-nav-bar mat-align-tabs="start" [tabPanel]="panel">
+    <a
+      mat-tab-link
+      routerLink="/leave/dashboard"
+      routerLinkActive="mat-mdc-tab-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      แดชบอร์ด
+    </a>
+
+    <a
+      mat-tab-link
+      routerLink="/leave/request"
+      routerLinkActive="mat-mdc-tab-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      ขอลางาน
+    </a>
+
+    <a
+      mat-tab-link
+      routerLink="/leave/history"
+      routerLinkActive="mat-mdc-tab-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      ประวัติการลา
+    </a>
+
+    <a
+      mat-tab-link
+      routerLink="/leave/approve"
+      routerLinkActive="mat-mdc-tab-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      รายการขออนุมัติการลา
+    </a>
+  </nav>
+</mat-card>
+
+<mat-tab-nav-panel #panel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>

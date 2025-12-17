@@ -1,0 +1,67 @@
+<mat-card class="stat-card">
+  <div class="stat-content">
+    <div>
+      <div class="value-header">รายการขออนุมัติการลา</div>
+      <div class="label">
+        รายการที่รอการอนุมัติทั้งหมด {{ pendingCount }} รายการ
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card class="stat-card" *ngFor="let item of leaveRequest">
+  <ng-container>
+    <div class="header">
+      <div class="user-info">
+        <div class="name">{{ item.username }}</div>
+        <div class="meta">{{ item.department }} · {{ item.role }}</div>
+      </div>
+
+      <mat-chip color="warn" selected>
+        {{ item.status | thStatus }}
+      </mat-chip>
+    </div>
+
+
+    <div class="detail-grid">
+      <div class="col">
+        <div class="label">ประเภทการลา</div>
+        <div class="value">{{ item.leaveTypeEnum | leaveType }}</div>
+
+        <div class="label">วันที่เริ่มต้น</div>
+        <div class="value">{{ item.startDate }}</div>
+
+        <div class="label">เหตุผลการลา</div>
+        <div class="value reason">{{ item.reason }}</div>
+      </div>
+
+      <div class="col">
+        <div class="label">จำนวนวัน</div>
+        <div class="value">{{ item.days }} วัน</div>
+
+        <div class="label">วันที่สิ้นสุด</div>
+        <div class="value">{{ item.endDate }}</div>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>ความคิดเห็นผู้อนุมัติ (ถ้ามี)</mat-label>
+      <textarea matInput rows="3"></textarea>
+    </mat-form-field>
+
+    <div class="actions">
+  <button mat-raised-button
+    style="color:white;background-color:rgb(236,57,57)"
+    (click)="reject(item)">
+    ไม่อนุมัติ
+  </button>
+
+  <button mat-raised-button
+    style="color:white;background-color:rgb(55,203,25)"
+    (click)="approve(item)">
+    อนุมัติ
+  </button>
+</div>
+
+  </ng-container>
+</mat-card>

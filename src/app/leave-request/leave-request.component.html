@@ -1,0 +1,63 @@
+<mat-card class="form-card">
+  <div class="header">
+    <mat-icon color="primary">calendar_month</mat-icon>
+    <h2>แบบฟอร์มขอลางาน</h2>
+  </div>
+
+  <form [formGroup]="form" class="form">
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>ประเภทการลา</mat-label>
+      <mat-select formControlName="leaveType">
+        <mat-option *ngFor="let t of leaveTypes" [value]="t">
+          {{ t }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="date-row">
+      <mat-form-field appearance="outline">
+        <mat-label>วันที่เริ่มต้น</mat-label>
+        <input
+          matInput
+          [matDatepicker]="start"
+          formControlName="startDate"
+          [min]="minDate"
+          readonly
+        />
+        <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+        <mat-datepicker #start></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>วันที่สิ้นสุด</mat-label>
+        <input
+          matInput
+          [matDatepicker]="end"
+          formControlName="endDate"
+          [min]="form.get('startDate')?.value || minDate"
+          readonly
+        />
+        <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+        <mat-datepicker #end></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>เหตุผลการลา</mat-label>
+      <textarea matInput rows="4" formControlName="reason"></textarea>
+    </mat-form-field>
+
+    <div class="actions">
+      <button
+        mat-flat-button
+        style="color: rgb(0, 0, 0); background-color: rgb(216, 216, 216)"
+        (click)="cancel()"
+      >
+        ยกเลิก
+      </button>
+      <button mat-flat-button color="primary" (click)="submit()">
+        ส่งคำขอลา
+      </button>
+    </div>
+  </form>
+</mat-card>

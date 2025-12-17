@@ -1,0 +1,94 @@
+.stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 16px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+}
+
+.value-header {
+  font-size: 18px;
+  font-weight: bold;
+}
+     
+.leave-card {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.department {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ===== Detail Section ===== */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+  border-top: 1px solid #000000;
+}
+
+.label {
+  font-size: 13px;
+  color: #888;
+  margin-top: 12px;
+}
+
+.value-data {
+  font-size: 15px;
+  color: #222;
+  margin-top: 2px;
+}
+
+/* ===== Comment ===== */
+.full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ===== Actions ===== */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* ===== Button spacing fix for Material ===== */
+button[mat-raised-button] {
+  min-width: 120px;
+
+}
+
